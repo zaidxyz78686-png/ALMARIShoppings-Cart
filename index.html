@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALMARI Shoppings</title>
+
+<title>ALMARI Shoppings - Order</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -13,288 +16,529 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:#f4f4f4;
+  background:#f4f5f7;
   color:#222;
 }
 
 .container{
-  max-width:520px;
-  margin:25px auto;
-  background:#fff;
-  padding:22px;
-  border-radius:16px;
-  box-shadow:0 4px 18px rgba(0,0,0,.12);
+  max-width:850px;
+  margin:20px auto;
+  padding:15px;
 }
 
-h1{
+.header{
+  background:#111;
+  color:white;
   text-align:center;
-  margin:0 0 6px;
-  font-size:28px;
-}
-
-.subtitle{
-  text-align:center;
-  color:#777;
+  padding:22px 15px;
+  border-radius:15px;
   margin-bottom:20px;
+}
+
+.header h1{
+  margin:0;
+  font-size:30px;
+}
+
+.header p{
+  margin:7px 0 0;
+  color:#ddd;
 }
 
 .offer{
-  background:#eaf8ee;
-  border:1px solid #45a968;
-  border-radius:10px;
-  padding:13px;
+  background:#0b8f45;
+  color:white;
   text-align:center;
+  padding:18px;
+  border-radius:14px;
   margin-bottom:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.12);
 }
 
-.offer strong{
-  display:block;
-  color:#16803c;
-  font-size:18px;
+.offer h2{
+  margin:0 0 6px;
+  font-size:24px;
 }
 
-.section{
-  margin-top:22px;
+.offer p{
+  margin:5px 0;
+  font-size:16px;
 }
 
-.section-title{
-  font-size:19px;
-  font-weight:bold;
-  border-bottom:1px solid #ddd;
-  padding-bottom:8px;
-  margin-bottom:14px;
+.offer-date{
+  font-size:13px;
+  opacity:.9;
+}
+
+.card{
+  background:white;
+  padding:22px;
+  margin-bottom:18px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+  margin-top:0;
+  font-size:21px;
+  border-bottom:1px solid #eee;
+  padding-bottom:12px;
 }
 
 label{
   display:block;
   font-weight:bold;
-  margin:12px 0 6px;
+  margin:14px 0 7px;
+}
+
+.required{
+  color:red;
 }
 
 input,
-select{
+select,
+textarea{
   width:100%;
-  padding:12px;
+  padding:13px;
   border:1px solid #ccc;
-  border-radius:8px;
+  border-radius:9px;
   font-size:15px;
   outline:none;
 }
 
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#111;
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
 .product{
   border:1px solid #ddd;
-  border-radius:11px;
-  padding:14px;
-  margin-bottom:12px;
+  border-radius:13px;
+  padding:16px;
+  margin-bottom:15px;
+  background:#fafafa;
 }
 
-.product-name{
-  font-weight:bold;
-  font-size:17px;
-  margin-bottom:7px;
+.product h3{
+  margin:0 0 8px;
+  font-size:18px;
 }
 
-.old-price{
+.original{
   color:#888;
   text-decoration:line-through;
-  margin-right:7px;
+  font-size:14px;
 }
 
-.new-price{
-  font-size:19px;
+.price{
+  font-size:21px;
   font-weight:bold;
+  margin-top:4px;
 }
 
-.off{
-  color:#d00;
+.discount{
+  display:inline-block;
+  background:#e53935;
+  color:white;
+  padding:5px 9px;
+  border-radius:6px;
+  font-size:12px;
   font-weight:bold;
-  margin-left:5px;
+  margin-top:7px;
+}
+
+.quantity-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:15px;
 }
 
 .quantity{
   display:flex;
   align-items:center;
-  gap:12px;
-  margin-top:12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  overflow:hidden;
 }
 
 .quantity button{
-  width:38px;
+  width:40px;
   height:38px;
   border:0;
-  border-radius:7px;
-  background:#222;
+  background:#111;
   color:white;
-  font-size:23px;
+  font-size:20px;
   cursor:pointer;
 }
 
 .quantity span{
-  min-width:25px;
+  width:45px;
   text-align:center;
   font-weight:bold;
-  font-size:18px;
 }
 
-.summary{
-  background:#f7f7f7;
-  border-radius:10px;
-  padding:14px;
-}
-
-.row{
+.summary-row{
   display:flex;
   justify-content:space-between;
-  padding:6px 0;
+  padding:9px 0;
+  border-bottom:1px solid #eee;
 }
 
-.total{
-  border-top:1px solid #ccc;
-  margin-top:7px;
-  padding-top:11px;
-  font-size:19px;
+.grand{
+  font-size:21px;
+  font-weight:bold;
+  padding-top:15px;
+}
+
+.free-delivery{
+  background:#e8f8ed;
+  color:#16733a;
+  padding:13px;
+  border-radius:9px;
+  margin-top:12px;
+  text-align:center;
   font-weight:bold;
 }
 
-.payment-box{
-  background:#fff6e7;
-  border:1px solid #e8a72c;
-  border-radius:10px;
-  padding:14px;
+.payment-warning{
+  background:#fff0f0;
+  border:2px solid #e53935;
+  border-radius:12px;
+  padding:18px;
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.payment-warning h3{
+  color:#d00000;
+  margin:0 0 10px;
 }
 
 .jazzcash{
-  text-align:center;
-  font-size:23px;
+  font-size:22px;
   font-weight:bold;
-  margin:12px 0;
+  letter-spacing:1px;
 }
 
-.place-order{
+.order-btn{
   width:100%;
-  border:0;
-  border-radius:9px;
+  padding:16px;
   background:#111;
   color:white;
-  padding:15px;
-  margin-top:22px;
-  font-size:17px;
+  border:none;
+  border-radius:10px;
+  font-size:18px;
   font-weight:bold;
   cursor:pointer;
 }
 
-.place-order:disabled{
-  opacity:.6;
+.order-btn:hover{
+  background:#333;
+}
+
+.order-btn:disabled{
+  background:#777;
+  cursor:not-allowed;
 }
 
 .message{
   display:none;
+  padding:16px;
   margin-top:15px;
-  padding:13px;
-  border-radius:9px;
+  border-radius:10px;
   text-align:center;
   font-weight:bold;
 }
 
 .success{
-  display:block;
-  background:#eaf8ee;
-  color:#16803c;
-  border:1px solid #45a968;
+  background:#e8f8ed;
+  color:#16733a;
 }
 
 .error{
-  display:block;
   background:#ffeaea;
-  color:#c00;
-  border:1px solid #d00;
+  color:#b00000;
 }
 
-.note{
-  font-size:12px;
-  color:#777;
-  margin-top:5px;
+.order-result{
+  display:none;
+  margin-top:15px;
+  padding:18px;
+  background:#fff;
+  border-radius:12px;
+  border:2px solid #0b8f45;
 }
+
+.order-result h3{
+  margin-top:0;
+  color:#0b8f45;
+}
+
+.order-line{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:8px 0;
+  border-bottom:1px solid #eee;
+}
+
+.order-line strong{
+  text-align:right;
+}
+
+.order-id{
+  background:#111;
+  color:white;
+  padding:13px;
+  border-radius:9px;
+  text-align:center;
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.status{
+  background:#e8f8ed;
+  color:#16733a;
+  padding:12px;
+  border-radius:9px;
+  text-align:center;
+  font-weight:bold;
+  margin-top:12px;
+}
+
+.track-box{
+  background:white;
+  padding:22px;
+  margin-bottom:18px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.track-box h2{
+  margin-top:0;
+  font-size:21px;
+  border-bottom:1px solid #eee;
+  padding-bottom:12px;
+}
+
+.track-btn{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  background:#111;
+  color:white;
+  border:none;
+  border-radius:9px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.track-result{
+  display:none;
+  margin-top:15px;
+}
+
+@media(max-width:600px){
+
+  .container{
+    padding:10px;
+  }
+
+  .card{
+    padding:17px;
+  }
+
+  .header h1{
+    font-size:25px;
+  }
+
+  .quantity-row{
+    align-items:flex-start;
+    gap:10px;
+    flex-direction:column;
+  }
+
+  .order-line{
+    flex-direction:column;
+    gap:3px;
+  }
+
+  .order-line strong{
+    text-align:left;
+  }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
+<div class="header">
 <h1>ALMARI Shoppings</h1>
-<div class="subtitle">Complete Your Order</div>
+<p>Place Your Order</p>
+</div>
 
 <div class="offer">
-  <strong>FREE DELIVERY IN PUNJAB</strong>
-  Offer valid until January 1, 2027
+
+<h2>🎉 SPECIAL OFFER 🎉</h2>
+
+<p>
+<strong>FREE DELIVERY IN PUNJAB</strong>
+</p>
+
+<p>
+Order now and enjoy FREE DELIVERY!
+</p>
+
+<div class="offer-date">
+Offer valid until January 1, 2027
+</div>
+
 </div>
 
 
-<form id="orderForm">
+<!-- CUSTOMER -->
 
-<!-- CUSTOMER INFORMATION -->
+<div class="card">
 
-<div class="section">
+<h2>1. Customer Information</h2>
 
-<div class="section-title">
-Customer Information
-</div>
+<label>
+Customer Name <span class="required">*</span>
+</label>
 
-<label>Customer Name *</label>
-<input type="text" id="name" required>
+<input
+type="text"
+id="name"
+placeholder="Enter your full name"
+required
+>
 
-<label>Mobile Number *</label>
-<input type="tel" id="phone" required>
+<label>
+Mobile Number <span class="required">*</span>
+</label>
 
-<label>Gmail *</label>
-<input type="email" id="email" required>
+<input
+type="tel"
+id="phone"
+placeholder="03XXXXXXXXX"
+required
+>
 
-<label>Complete Address *</label>
-<input type="text" id="address" required>
+<label>
+Gmail <span class="required">*</span>
+</label>
 
-<label>City *</label>
-<input type="text" id="city" required>
+<input
+type="email"
+id="email"
+placeholder="example@gmail.com"
+required
+>
 
-<label>Province *</label>
+<label>
+Complete Address <span class="required">*</span>
+</label>
+
+<textarea
+id="address"
+placeholder="House number, street, area, etc."
+required
+></textarea>
+
+<label>
+City <span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="city"
+placeholder="Enter your city"
+required
+>
+
+<label>
+Province <span class="required">*</span>
+</label>
+
 <select id="province" required>
-<option value="">Select Province</option>
-<option value="PUNJAB">PUNJAB</option>
+
+<option value="">
+Select Province
+</option>
+
+<option value="PUNJAB">
+PUNJAB
+</option>
+
 </select>
 
 </div>
 
 
-<!-- ORDER DETAILS -->
+<!-- PRODUCTS -->
 
-<div class="section">
+<div class="card">
 
-<div class="section-title">
-Order Details
-</div>
-
+<h2>2. Select Your Products</h2>
 
 <div class="product">
 
-<div class="product-name">
+<h3>
 Knox Glow Multi Vitamin Serum
+</h3>
+
+<div class="original">
+Original Price: Rs. 1,500
 </div>
 
-<div>
-<span class="old-price">Rs. 1,500</span>
-<span class="new-price">Rs. 699</span>
-<span class="off">Rs. 801 OFF</span>
+<div class="price">
+Rs. 699
 </div>
+
+<div class="discount">
+Rs. 801 OFF
+</div>
+
+<div class="quantity-row">
+
+<span>
+Quantity
+</span>
 
 <div class="quantity">
 
-<button type="button"
-onclick="changeQty('serum',-1)">−</button>
+<button
+type="button"
+onclick="changeQty('serum',-1)"
+>
+−
+</button>
 
-<span id="serumQty">0</span>
+<span id="serumQty">
+0
+</span>
 
-<button type="button"
-onclick="changeQty('serum',1)">+</button>
+<button
+type="button"
+onclick="changeQty('serum',1)"
+>
++
+</button>
+
+</div>
 
 </div>
 
@@ -303,47 +547,102 @@ onclick="changeQty('serum',1)">+</button>
 
 <div class="product">
 
-<div class="product-name">
+<h3>
 Knox Glow Gluta White Cream
+</h3>
+
+<div class="original">
+Original Price: Rs. 1,200
 </div>
 
-<div>
-<span class="old-price">Rs. 1,200</span>
-<span class="new-price">Rs. 550</span>
-<span class="off">Rs. 650 OFF</span>
+<div class="price">
+Rs. 550
 </div>
+
+<div class="discount">
+Rs. 650 OFF
+</div>
+
+<div class="quantity-row">
+
+<span>
+Quantity
+</span>
 
 <div class="quantity">
 
-<button type="button"
-onclick="changeQty('cream',-1)">−</button>
+<button
+type="button"
+onclick="changeQty('cream',-1)"
+>
+−
+</button>
 
-<span id="creamQty">0</span>
+<span id="creamQty">
+0
+</span>
 
-<button type="button"
-onclick="changeQty('cream',1)">+</button>
+<button
+type="button"
+onclick="changeQty('cream',1)"
+>
++
+</button>
+
+</div>
+
+</div>
 
 </div>
 
 </div>
 
 
-<div class="summary">
+<!-- SUMMARY -->
 
-<div class="row">
-<span>Products Subtotal</span>
-<span>Rs. <span id="subtotal">0</span></span>
+<div class="card">
+
+<h2>
+3. Order Summary
+</h2>
+
+<div class="summary-row">
+
+<span>
+Products Subtotal
+</span>
+
+<strong id="subtotal">
+Rs. 0
+</strong>
+
 </div>
 
-<div class="row">
-<span>Delivery</span>
-<span>FREE</span>
+<div class="summary-row">
+
+<span>
+Delivery Charges
+</span>
+
+<strong id="delivery">
+Rs. 0
+</strong>
+
 </div>
 
-<div class="row total">
-<span>Grand Total</span>
-<span>Rs. <span id="grandTotal">0</span></span>
+<div class="free-delivery">
+FREE DELIVERY IN PUNJAB
 </div>
+
+<div class="summary-row grand">
+
+<span>
+Grand Total
+</span>
+
+<strong id="grandTotal">
+Rs. 0
+</strong>
 
 </div>
 
@@ -352,326 +651,956 @@ onclick="changeQty('cream',1)">+</button>
 
 <!-- PAYMENT -->
 
-<div class="section">
+<div class="card">
 
-<div class="section-title">
-Payment
+<h2>
+4. Payment
+</h2>
+
+<div class="payment-warning">
+
+<h3>
+SEND PAYMENT BEFORE ORDER
+</h3>
+
+<div>
+Send your payment through JazzCash before placing your order.
 </div>
 
-<div class="payment-box">
-
-<strong>SEND PAYMENT BEFORE ORDER</strong>
-
-<p>
-Please send payment through JazzCash before placing your order.
-</p>
+<br>
 
 <div class="jazzcash">
 JazzCash: 03217819034
 </div>
 
-<label>Payment Method *</label>
+</div>
+
+<label>
+Payment Method <span class="required">*</span>
+</label>
 
 <select id="paymentMethod" required>
-<option value="">Select Payment Method</option>
-<option value="JazzCash">JazzCash</option>
+
+<option value="">
+Select Payment Method
+</option>
+
+<option value="JazzCash">
+JazzCash
+</option>
+
 </select>
 
-
-<label>Payment Screenshot *</label>
+<label>
+Payment Screenshot <span class="required">*</span>
+</label>
 
 <input
 type="file"
-id="screenshot"
+id="paymentScreenshot"
 accept="image/*"
 required
 >
 
-<div class="note">
-Upload your JazzCash payment screenshot.
 </div>
 
-</div>
 
-</div>
+<!-- PLACE ORDER -->
 
+<div class="card">
+
+<h2>
+5. Place Order
+</h2>
 
 <button
-type="submit"
-class="place-order"
-id="placeOrder">
-
+type="button"
+class="order-btn"
+id="placeOrderBtn"
+onclick="placeOrder()"
+>
 PLACE ORDER
-
 </button>
 
+<div
+id="message"
+class="message"
+></div>
 
-<div id="message" class="message"></div>
+<div
+id="orderResult"
+class="order-result"
+>
 
-</form>
+<h3>
+✅ ORDER CONFIRMED
+</h3>
+
+<div id="orderDetails"></div>
+
+</div>
+
+</div>
+
+
+<!-- TRACK -->
+
+<div class="track-box">
+
+<h2>
+📦 Track Your Order
+</h2>
+
+<p>
+Enter your Order ID to see your order information and current status.
+</p>
+
+<input
+type="text"
+id="trackOrderId"
+placeholder="Example: ALM-20260920-1234"
+>
+
+<button
+type="button"
+class="track-btn"
+onclick="trackOrder()"
+>
+CHECK MY ORDER
+</button>
+
+<div
+id="trackResult"
+class="track-result"
+></div>
+
+</div>
 
 </div>
 
 
 <script>
 
-/* GOOGLE APPS SCRIPT */
+/* NEW GOOGLE APPS SCRIPT URL */
 
 const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzclrDiih0CgpiNfkPkURDiq1qtXa51-R9VMW_rkQup1nHOPa0zSLmIYo7j4GGGlDvcvQ/exec";
+"https://script.google.com/macros/s/AKfycbwZB2B3XBFi782E6hVvTLTm7P81KmmTZPl5itd84NQGyMa8FvGdKDUusg1wEk9EXqXjpQ/exec";
 
 
-let serumQty = 0;
-let creamQty = 0;
+/* PRODUCTS */
+
+let quantities = {
+  serum:0,
+  cream:0
+};
+
+const prices = {
+  serum:699,
+  cream:550
+};
 
 
 /* QUANTITY */
 
 function changeQty(product,amount){
 
-if(product === "serum"){
+  quantities[product] += amount;
 
-serumQty += amount;
+  if(quantities[product] < 0){
+    quantities[product] = 0;
+  }
 
-if(serumQty < 0){
-serumQty = 0;
-}
+  document.getElementById(
+    product+"Qty"
+  ).innerText = quantities[product];
 
-document.getElementById("serumQty").innerText =
-serumQty;
-
-}
-
-if(product === "cream"){
-
-creamQty += amount;
-
-if(creamQty < 0){
-creamQty = 0;
-}
-
-document.getElementById("creamQty").innerText =
-creamQty;
-
-}
-
-updateTotal();
-
+  updateSummary();
 }
 
 
-/* TOTAL */
+/* SUMMARY */
 
-function updateTotal(){
+function updateSummary(){
 
-const subtotal =
-(serumQty * 699) +
-(creamQty * 550);
+  const subtotal =
+    (quantities.serum * prices.serum) +
+    (quantities.cream * prices.cream);
 
-document.getElementById("subtotal").innerText =
-subtotal;
+  document.getElementById(
+    "subtotal"
+  ).innerText =
+    "Rs. " + subtotal.toLocaleString();
 
-document.getElementById("grandTotal").innerText =
-subtotal;
-
+  updateDelivery(subtotal);
 }
 
 
-/* IMAGE TO BASE64 */
+/* DELIVERY */
 
-function fileToBase64(file){
+function updateDelivery(subtotalValue){
 
-return new Promise(function(resolve,reject){
+  let subtotal;
 
-const reader = new FileReader();
+  if(typeof subtotalValue === "number"){
+    subtotal = subtotalValue;
+  }else{
+    subtotal =
+      (quantities.serum * prices.serum) +
+      (quantities.cream * prices.cream);
+  }
 
-reader.onload = function(){
-resolve(reader.result);
-};
+  document.getElementById(
+    "delivery"
+  ).innerText = "Rs. 0";
 
-reader.onerror = reject;
-
-reader.readAsDataURL(file);
-
-});
-
+  document.getElementById(
+    "grandTotal"
+  ).innerText =
+    "Rs. " +
+    subtotal.toLocaleString();
 }
 
 
-/* ORDER */
+/* FILE BASE64 */
 
-document.getElementById("orderForm")
-.addEventListener("submit",async function(e){
+function convertFileToBase64(file){
 
-e.preventDefault();
+  return new Promise((resolve,reject)=>{
 
-const button =
-document.getElementById("placeOrder");
+    const reader = new FileReader();
 
-const message =
-document.getElementById("message");
+    reader.onload =
+      () => resolve(reader.result);
 
+    reader.onerror =
+      error => reject(error);
 
-/* PRODUCT REQUIRED */
+    reader.readAsDataURL(file);
 
-if(serumQty === 0 && creamQty === 0){
-
-message.className = "message error";
-message.innerText =
-"Please select at least one product.";
-
-return;
+  });
 
 }
 
 
-/* PROVINCE */
+/* ORDER ID */
 
-const province =
-document.getElementById("province").value;
+function generateOrderId(){
 
-if(province !== "PUNJAB"){
+  const now = new Date();
 
-message.className = "message error";
-message.innerText =
-"Delivery is currently available in Punjab only.";
+  const year =
+    now.getFullYear();
 
-return;
+  const month =
+    String(now.getMonth()+1)
+    .padStart(2,"0");
+
+  const day =
+    String(now.getDate())
+    .padStart(2,"0");
+
+  const random =
+    Math.floor(
+      1000 + Math.random() * 9000
+    );
+
+  return "ALM-" +
+    year +
+    month +
+    day +
+    "-" +
+    random;
+}
+
+
+/* ESCAPE */
+
+function escapeHtml(value){
+
+  return String(value || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
-/* SCREENSHOT */
+/* SHOW ORDER */
 
-const screenshotInput =
-document.getElementById("screenshot");
+function showOrderInformation(data){
 
-if(!screenshotInput.files.length){
+  const details =
+    document.getElementById(
+      "orderDetails"
+    );
 
-message.className = "message error";
-message.innerText =
-"Please upload your payment screenshot.";
+  details.innerHTML = `
 
-return;
+    <div class="order-id">
+      ORDER ID:
+      <strong>${escapeHtml(data.orderId)}</strong>
+    </div>
+
+    <div class="order-line">
+      <span>Customer Name</span>
+      <strong>${escapeHtml(data.name)}</strong>
+    </div>
+
+    <div class="order-line">
+      <span>Mobile</span>
+      <strong>${escapeHtml(data.phone)}</strong>
+    </div>
+
+    <div class="order-line">
+      <span>Address</span>
+      <strong>${escapeHtml(data.address)}</strong>
+    </div>
+
+    <div class="order-line">
+      <span>City</span>
+      <strong>${escapeHtml(data.city)}</strong>
+    </div>
+
+    <div class="order-line">
+      <span>Province</span>
+      <strong>${escapeHtml(data.province)}</strong>
+    </div>
+
+    <div class="order-line">
+      <span>Serum Quantity</span>
+      <strong>${data.serumQty}</strong>
+    </div>
+
+    <div class="order-line">
+      <span>Cream Quantity</span>
+      <strong>${data.creamQty}</strong>
+    </div>
+
+    <div class="order-line">
+      <span>Products Subtotal</span>
+      <strong>
+        Rs. ${Number(data.subtotal).toLocaleString()}
+      </strong>
+    </div>
+
+    <div class="order-line">
+      <span>Delivery Charges</span>
+      <strong>Rs. 0</strong>
+    </div>
+
+    <div class="order-line">
+      <span>Grand Total</span>
+      <strong>
+        Rs. ${Number(data.grandTotal).toLocaleString()}
+      </strong>
+    </div>
+
+    <div class="order-line">
+      <span>Payment Method</span>
+      <strong>${escapeHtml(data.paymentMethod)}</strong>
+    </div>
+
+    <div class="status">
+      ORDER STATUS:
+      ${escapeHtml(data.status || "Confirmed")}
+    </div>
+
+  `;
+
+  document.getElementById(
+    "orderResult"
+  ).style.display = "block";
+
+}
+
+
+/* PLACE ORDER */
+
+async function placeOrder(){
+
+  const name =
+    document.getElementById("name")
+    .value.trim();
+
+  const phone =
+    document.getElementById("phone")
+    .value.trim();
+
+  const email =
+    document.getElementById("email")
+    .value.trim();
+
+  const address =
+    document.getElementById("address")
+    .value.trim();
+
+  const city =
+    document.getElementById("city")
+    .value.trim();
+
+  const province =
+    document.getElementById("province")
+    .value;
+
+  const paymentMethod =
+    document.getElementById("paymentMethod")
+    .value;
+
+  const screenshotFile =
+    document.getElementById(
+      "paymentScreenshot"
+    ).files[0];
+
+  const message =
+    document.getElementById("message");
+
+  const button =
+    document.getElementById(
+      "placeOrderBtn"
+    );
+
+
+  /* CUSTOMER CHECK */
+
+  if(
+    !name ||
+    !phone ||
+    !email ||
+    !address ||
+    !city ||
+    !province
+  ){
+
+    message.style.display = "block";
+
+    message.className =
+      "message error";
+
+    message.innerText =
+      "Please fill all required customer information.";
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+    return;
+  }
+
+
+  /* PRODUCT CHECK */
+
+  if(
+    quantities.serum +
+    quantities.cream === 0
+  ){
+
+    message.style.display = "block";
+
+    message.className =
+      "message error";
+
+    message.innerText =
+      "Please select at least one product.";
+
+    return;
+  }
+
+
+  /* PAYMENT CHECK */
+
+  if(!paymentMethod){
+
+    message.style.display = "block";
+
+    message.className =
+      "message error";
+
+    message.innerText =
+      "Please select your payment method.";
+
+    return;
+  }
+
+
+  /* SCREENSHOT CHECK */
+
+  if(!screenshotFile){
+
+    message.style.display = "block";
+
+    message.className =
+      "message error";
+
+    message.innerText =
+      "Please upload your payment screenshot.";
+
+    return;
+  }
+
+
+  try{
+
+    button.disabled = true;
+
+    button.innerText =
+      "SENDING ORDER...";
+
+    message.style.display =
+      "block";
+
+    message.className =
+      "message success";
+
+    message.innerText =
+      "Please wait... Your order is being submitted.";
+
+
+    /* TOTAL */
+
+    const subtotal =
+      (quantities.serum * prices.serum) +
+      (quantities.cream * prices.cream);
+
+    const delivery = 0;
+
+    const grandTotal =
+      subtotal + delivery;
+
+
+    /* ORDER ID */
+
+    const orderId =
+      generateOrderId();
+
+
+    /* SCREENSHOT */
+
+    const screenshot =
+      await convertFileToBase64(
+        screenshotFile
+      );
+
+
+    /* ORDER DATA */
+
+    const orderData = {
+
+      orderId:orderId,
+
+      name:name,
+
+      phone:phone,
+
+      email:email,
+
+      address:address,
+
+      city:city,
+
+      province:province,
+
+      serumQty:
+        quantities.serum,
+
+      creamQty:
+        quantities.cream,
+
+      subtotal:
+        subtotal,
+
+      delivery:
+        delivery,
+
+      grandTotal:
+        grandTotal,
+
+      paymentMethod:
+        paymentMethod,
+
+      screenshot:
+        screenshot,
+
+      screenshotName:
+        screenshotFile.name,
+
+      screenshotType:
+        screenshotFile.type
+
+    };
+
+
+    /* SEND ORDER */
+
+    await fetch(
+
+      GOOGLE_SCRIPT_URL,
+
+      {
+
+        method:"POST",
+
+        mode:"no-cors",
+
+        body:
+          JSON.stringify(
+            orderData
+          ),
+
+        headers:{
+          "Content-Type":
+            "text/plain;charset=utf-8"
+        }
+
+      }
+
+    );
+
+
+    /* SHOW CUSTOMER ORDER */
+
+    showOrderInformation({
+
+      orderId:orderId,
+
+      name:name,
+
+      phone:phone,
+
+      address:address,
+
+      city:city,
+
+      province:province,
+
+      serumQty:
+        quantities.serum,
+
+      creamQty:
+        quantities.cream,
+
+      subtotal:
+        subtotal,
+
+      grandTotal:
+        grandTotal,
+
+      paymentMethod:
+        paymentMethod,
+
+      status:"Confirmed"
+
+    });
+
+
+    message.className =
+      "message success";
+
+    message.innerText =
+      "ORDER PLACED SUCCESSFULLY! Save your Order ID to check your order later.";
+
+    button.innerText =
+      "ORDER PLACED";
+
+
+    /* SAVE ORDER ID */
+
+    localStorage.setItem(
+      "almariLastOrderId",
+      orderId
+    );
+
+    document.getElementById(
+      "trackOrderId"
+    ).value =
+      orderId;
+
+
+  }catch(error){
+
+    console.error(error);
+
+    message.className =
+      "message error";
+
+    message.innerText =
+      "Order could not be submitted. Please try again.";
+
+    button.disabled = false;
+
+    button.innerText =
+      "PLACE ORDER";
+
+  }
 
 }
 
 
-button.disabled = true;
-button.innerText = "SENDING ORDER...";
+/* TRACK ORDER */
+
+function trackOrder(){
+
+  const orderId =
+    document.getElementById(
+      "trackOrderId"
+    ).value.trim();
+
+  const result =
+    document.getElementById(
+      "trackResult"
+    );
 
 
-try{
+  if(!orderId){
 
-const file =
-screenshotInput.files[0];
+    result.style.display =
+      "block";
 
-const screenshot =
-await fileToBase64(file);
+    result.innerHTML = `
+      <div
+        class="message error"
+        style="display:block;"
+      >
+        Please enter your Order ID.
+      </div>
+    `;
 
-const subtotal =
-(serumQty * 699) +
-(creamQty * 550);
-
-
-const orderData = {
-
-name:
-document.getElementById("name").value,
-
-phone:
-document.getElementById("phone").value,
-
-email:
-document.getElementById("email").value,
-
-address:
-document.getElementById("address").value,
-
-city:
-document.getElementById("city").value,
-
-province:
-province,
-
-serumQty:
-serumQty,
-
-creamQty:
-creamQty,
-
-subtotal:
-subtotal,
-
-delivery:
-0,
-
-grandTotal:
-subtotal,
-
-paymentMethod:
-document.getElementById("paymentMethod").value,
-
-screenshot:
-screenshot,
-
-screenshotName:
-file.name,
-
-screenshotType:
-file.type
-
-};
+    return;
+  }
 
 
-/*
-SEND ORDER
-*/
+  result.style.display =
+    "block";
 
-await fetch(GOOGLE_SCRIPT_URL,{
+  result.innerHTML = `
+    <div
+      class="message success"
+      style="display:block;"
+    >
+      Checking your order...
+    </div>
+  `;
 
-method:"POST",
 
-mode:"no-cors",
+  const callbackName =
+    "almariCallback_" +
+    Date.now();
 
-body:JSON.stringify(orderData),
 
-headers:{
-"Content-Type":
-"text/plain;charset=utf-8"
+  window[callbackName] =
+    function(data){
+
+      if(data.success){
+
+        result.innerHTML = `
+
+          <div
+            class="order-result"
+            style="display:block;"
+          >
+
+            <h3>
+              ✅ YOUR ORDER
+            </h3>
+
+            <div class="order-id">
+              ORDER ID:
+              <strong>
+                ${escapeHtml(data.orderId)}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Customer Name</span>
+              <strong>
+                ${escapeHtml(data.name)}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Mobile</span>
+              <strong>
+                ${escapeHtml(data.phone)}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Address</span>
+              <strong>
+                ${escapeHtml(data.address)}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>City</span>
+              <strong>
+                ${escapeHtml(data.city)}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Province</span>
+              <strong>
+                ${escapeHtml(data.province)}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Serum Quantity</span>
+              <strong>
+                ${data.serumQty}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Cream Quantity</span>
+              <strong>
+                ${data.creamQty}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Products Subtotal</span>
+              <strong>
+                Rs.
+                ${Number(
+                  data.subtotal
+                ).toLocaleString()}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Delivery Charges</span>
+              <strong>
+                Rs. 0
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Grand Total</span>
+              <strong>
+                Rs.
+                ${Number(
+                  data.grandTotal
+                ).toLocaleString()}
+              </strong>
+            </div>
+
+            <div class="order-line">
+              <span>Payment Method</span>
+              <strong>
+                ${escapeHtml(
+                  data.paymentMethod
+                )}
+              </strong>
+            </div>
+
+            <div class="status">
+              ORDER STATUS:
+              ${escapeHtml(
+                data.status ||
+                "Confirmed"
+              )}
+            </div>
+
+          </div>
+
+        `;
+
+      }else{
+
+        result.innerHTML = `
+          <div
+            class="message error"
+            style="display:block;"
+          >
+            Order not found.
+            Please check your Order ID.
+          </div>
+        `;
+
+      }
+
+
+      const script =
+        document.getElementById(
+          callbackName
+        );
+
+      if(script){
+        script.remove();
+      }
+
+      delete window[callbackName];
+
+    };
+
+
+  /* JSONP */
+
+  const script =
+    document.createElement("script");
+
+  script.id =
+    callbackName;
+
+  script.src =
+    GOOGLE_SCRIPT_URL +
+    "?orderId=" +
+    encodeURIComponent(orderId) +
+    "&callback=" +
+    callbackName;
+
+
+  script.onerror =
+    function(){
+
+      result.innerHTML = `
+        <div
+          class="message error"
+          style="display:block;"
+        >
+          Unable to check order right now.
+          Please try again.
+        </div>
+      `;
+
+      script.remove();
+
+      delete window[callbackName];
+
+    };
+
+
+  document.body.appendChild(script);
+
 }
 
-});
 
+/* LAST ORDER */
 
-/* SUCCESS */
+window.addEventListener(
+  "load",
+  function(){
 
-message.className =
-"message success";
+    const lastOrder =
+      localStorage.getItem(
+        "almariLastOrderId"
+      );
 
-message.innerText =
-"ORDER PLACED SUCCESSFULLY! Your order has been received.";
+    if(lastOrder){
 
-button.innerText =
-"ORDER PLACED";
+      document.getElementById(
+        "trackOrderId"
+      ).value =
+        lastOrder;
 
+    }
 
-}catch(error){
-
-message.className =
-"message error";
-
-message.innerText =
-"Unable to send order. Please try again.";
-
-button.disabled = false;
-
-button.innerText =
-"PLACE ORDER";
-
-}
-
-});
+  }
+);
 
 </script>
 
