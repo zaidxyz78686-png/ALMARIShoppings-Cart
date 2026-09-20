@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ALMARI Shoppings - Order</title>
+<title>ALMARI Shoppings</title>
 
 <style>
-
 *{
   box-sizing:border-box;
 }
@@ -15,592 +13,337 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:#f4f5f7;
+  background:#f4f4f4;
   color:#222;
 }
 
 .container{
-  max-width:850px;
-  margin:20px auto;
-  padding:15px;
+  max-width:520px;
+  margin:25px auto;
+  background:#fff;
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 4px 18px rgba(0,0,0,.12);
 }
 
-/* HEADER */
-
-.header{
-  background:#111;
-  color:white;
+h1{
   text-align:center;
-  padding:22px 15px;
-  border-radius:15px;
+  margin:0 0 6px;
+  font-size:28px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#777;
   margin-bottom:20px;
 }
-
-.header h1{
-  margin:0;
-  font-size:30px;
-}
-
-.header p{
-  margin:7px 0 0;
-  color:#ddd;
-}
-
-/* OFFER */
 
 .offer{
-  background:#0b8f45;
-  color:white;
+  background:#eaf8ee;
+  border:1px solid #45a968;
+  border-radius:10px;
+  padding:13px;
   text-align:center;
-  padding:18px;
-  border-radius:14px;
   margin-bottom:20px;
-  box-shadow:0 4px 12px rgba(0,0,0,.12);
 }
 
-.offer h2{
-  margin:0 0 6px;
-  font-size:24px;
+.offer strong{
+  display:block;
+  color:#16803c;
+  font-size:18px;
 }
 
-.offer p{
-  margin:5px 0;
-  font-size:16px;
+.section{
+  margin-top:22px;
 }
 
-.offer-date{
-  font-size:13px;
-  opacity:.9;
+.section-title{
+  font-size:19px;
+  font-weight:bold;
+  border-bottom:1px solid #ddd;
+  padding-bottom:8px;
+  margin-bottom:14px;
 }
-
-/* CARDS */
-
-.card{
-  background:white;
-  padding:22px;
-  margin-bottom:18px;
-  border-radius:15px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
-
-.card h2{
-  margin-top:0;
-  font-size:21px;
-  border-bottom:1px solid #eee;
-  padding-bottom:12px;
-}
-
-/* FORM */
 
 label{
   display:block;
   font-weight:bold;
-  margin:14px 0 7px;
-}
-
-.required{
-  color:red;
+  margin:12px 0 6px;
 }
 
 input,
-select,
-textarea{
+select{
   width:100%;
-  padding:13px;
+  padding:12px;
   border:1px solid #ccc;
-  border-radius:9px;
+  border-radius:8px;
   font-size:15px;
   outline:none;
 }
 
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:#111;
-}
-
-textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-/* PRODUCTS */
-
 .product{
   border:1px solid #ddd;
-  border-radius:13px;
-  padding:16px;
-  margin-bottom:15px;
-  background:#fafafa;
+  border-radius:11px;
+  padding:14px;
+  margin-bottom:12px;
 }
 
-.product h3{
-  margin:0 0 8px;
-  font-size:18px;
+.product-name{
+  font-weight:bold;
+  font-size:17px;
+  margin-bottom:7px;
 }
 
-.original{
+.old-price{
   color:#888;
   text-decoration:line-through;
-  font-size:14px;
+  margin-right:7px;
 }
 
-.price{
-  font-size:21px;
+.new-price{
+  font-size:19px;
   font-weight:bold;
-  margin-top:4px;
 }
 
-.discount{
-  display:inline-block;
-  background:#e53935;
-  color:white;
-  padding:5px 9px;
-  border-radius:6px;
-  font-size:12px;
+.off{
+  color:#d00;
   font-weight:bold;
-  margin-top:7px;
-}
-
-.quantity-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:15px;
+  margin-left:5px;
 }
 
 .quantity{
   display:flex;
   align-items:center;
-  border:1px solid #ccc;
-  border-radius:8px;
-  overflow:hidden;
+  gap:12px;
+  margin-top:12px;
 }
 
 .quantity button{
-  width:40px;
+  width:38px;
   height:38px;
   border:0;
-  background:#111;
+  border-radius:7px;
+  background:#222;
   color:white;
-  font-size:20px;
+  font-size:23px;
   cursor:pointer;
 }
 
 .quantity span{
-  width:45px;
+  min-width:25px;
   text-align:center;
   font-weight:bold;
+  font-size:18px;
 }
 
-/* SUMMARY */
+.summary{
+  background:#f7f7f7;
+  border-radius:10px;
+  padding:14px;
+}
 
-.summary-row{
+.row{
   display:flex;
   justify-content:space-between;
-  padding:9px 0;
-  border-bottom:1px solid #eee;
+  padding:6px 0;
 }
 
-.grand{
-  font-size:21px;
-  font-weight:bold;
-  padding-top:15px;
-}
-
-.free-delivery{
-  background:#e8f8ed;
-  color:#16733a;
-  padding:13px;
-  border-radius:9px;
-  margin-top:12px;
-  text-align:center;
+.total{
+  border-top:1px solid #ccc;
+  margin-top:7px;
+  padding-top:11px;
+  font-size:19px;
   font-weight:bold;
 }
 
-/* PAYMENT */
-
-.payment-warning{
-  background:#fff0f0;
-  border:2px solid #e53935;
-  border-radius:12px;
-  padding:18px;
-  text-align:center;
-  margin-bottom:15px;
-}
-
-.payment-warning h3{
-  color:#d00000;
-  margin:0 0 10px;
+.payment-box{
+  background:#fff6e7;
+  border:1px solid #e8a72c;
+  border-radius:10px;
+  padding:14px;
 }
 
 .jazzcash{
-  font-size:22px;
+  text-align:center;
+  font-size:23px;
   font-weight:bold;
-  letter-spacing:1px;
+  margin:12px 0;
 }
 
-/* BUTTON */
-
-.order-btn{
+.place-order{
   width:100%;
-  padding:16px;
+  border:0;
+  border-radius:9px;
   background:#111;
   color:white;
-  border:none;
-  border-radius:10px;
-  font-size:18px;
+  padding:15px;
+  margin-top:22px;
+  font-size:17px;
   font-weight:bold;
   cursor:pointer;
 }
 
-.order-btn:hover{
-  background:#333;
+.place-order:disabled{
+  opacity:.6;
 }
-
-.order-btn:disabled{
-  background:#777;
-  cursor:not-allowed;
-}
-
-/* MESSAGE */
 
 .message{
   display:none;
-  padding:16px;
   margin-top:15px;
-  border-radius:10px;
+  padding:13px;
+  border-radius:9px;
   text-align:center;
   font-weight:bold;
 }
 
 .success{
-  background:#e8f8ed;
-  color:#16733a;
+  display:block;
+  background:#eaf8ee;
+  color:#16803c;
+  border:1px solid #45a968;
 }
 
 .error{
+  display:block;
   background:#ffeaea;
-  color:#b00000;
+  color:#c00;
+  border:1px solid #d00;
 }
 
-/* MOBILE */
-
-@media(max-width:600px){
-
-  .container{
-    padding:10px;
-  }
-
-  .card{
-    padding:17px;
-  }
-
-  .header h1{
-    font-size:25px;
-  }
-
-  .quantity-row{
-    align-items:flex-start;
-    gap:10px;
-    flex-direction:column;
-  }
-
+.note{
+  font-size:12px;
+  color:#777;
+  margin-top:5px;
 }
-
 </style>
 </head>
-
 
 <body>
 
 <div class="container">
 
-
-<!-- HEADER -->
-
-<div class="header">
-
 <h1>ALMARI Shoppings</h1>
-
-<p>Place Your Order</p>
-
-</div>
-
-
-<!-- FREE DELIVERY OFFER -->
+<div class="subtitle">Complete Your Order</div>
 
 <div class="offer">
-
-<h2>🎉 SPECIAL OFFER 🎉</h2>
-
-<p>
-<strong>FREE DELIVERY IN PUNJAB</strong>
-</p>
-
-<p>
-Order now and enjoy FREE DELIVERY!
-</p>
-
-<div class="offer-date">
-Offer valid until January 1, 2027
+  <strong>FREE DELIVERY IN PUNJAB</strong>
+  Offer valid until January 1, 2027
 </div>
 
-</div>
 
+<form id="orderForm">
 
 <!-- CUSTOMER INFORMATION -->
 
-<div class="card">
+<div class="section">
 
-<h2>1. Customer Information</h2>
+<div class="section-title">
+Customer Information
+</div>
 
+<label>Customer Name *</label>
+<input type="text" id="name" required>
 
-<label>
-Customer Name <span class="required">*</span>
-</label>
+<label>Mobile Number *</label>
+<input type="tel" id="phone" required>
 
-<input
-type="text"
-id="name"
-placeholder="Enter your full name"
-required
->
+<label>Gmail *</label>
+<input type="email" id="email" required>
 
+<label>Complete Address *</label>
+<input type="text" id="address" required>
 
-<label>
-Mobile Number <span class="required">*</span>
-</label>
+<label>City *</label>
+<input type="text" id="city" required>
 
-<input
-type="tel"
-id="phone"
-placeholder="03XXXXXXXXX"
-required
->
-
-
-<label>
-Gmail <span class="required">*</span>
-</label>
-
-<input
-type="email"
-id="email"
-placeholder="example@gmail.com"
-required
->
-
-
-<label>
-Complete Address <span class="required">*</span>
-</label>
-
-<textarea
-id="address"
-placeholder="House number, street, area, etc."
-required
-></textarea>
-
-
-<label>
-City <span class="required">*</span>
-</label>
-
-<input
-type="text"
-id="city"
-placeholder="Enter your city"
-required
-oninput="updateDelivery()"
->
-
-
-<label>
-Province <span class="required">*</span>
-</label>
-
+<label>Province *</label>
 <select id="province" required>
-
-<option value="">
-Select Province
-</option>
-
-<option value="PUNJAB">
-PUNJAB
-</option>
-
+<option value="">Select Province</option>
+<option value="PUNJAB">PUNJAB</option>
 </select>
 
 </div>
 
 
-<!-- PRODUCTS -->
+<!-- ORDER DETAILS -->
 
-<div class="card">
+<div class="section">
 
-<h2>2. Select Your Products</h2>
+<div class="section-title">
+Order Details
+</div>
 
-
-<!-- SERUM -->
 
 <div class="product">
 
-<h3>
+<div class="product-name">
 Knox Glow Multi Vitamin Serum
-</h3>
-
-<div class="original">
-Original Price: Rs. 1,500
 </div>
 
-<div class="price">
-Rs. 699
+<div>
+<span class="old-price">Rs. 1,500</span>
+<span class="new-price">Rs. 699</span>
+<span class="off">Rs. 801 OFF</span>
 </div>
-
-<div class="discount">
-Rs. 801 OFF
-</div>
-
-<div class="quantity-row">
-
-<span>
-Quantity
-</span>
 
 <div class="quantity">
 
-<button
-type="button"
-onclick="changeQty('serum',-1)"
->
-−
-</button>
+<button type="button"
+onclick="changeQty('serum',-1)">−</button>
 
-<span id="serumQty">
-0
-</span>
+<span id="serumQty">0</span>
 
-<button
-type="button"
-onclick="changeQty('serum',1)"
->
-+
-</button>
+<button type="button"
+onclick="changeQty('serum',1)">+</button>
 
 </div>
 
 </div>
 
-</div>
-
-
-<!-- CREAM -->
 
 <div class="product">
 
-<h3>
+<div class="product-name">
 Knox Glow Gluta White Cream
-</h3>
-
-<div class="original">
-Original Price: Rs. 1,200
 </div>
 
-<div class="price">
-Rs. 550
+<div>
+<span class="old-price">Rs. 1,200</span>
+<span class="new-price">Rs. 550</span>
+<span class="off">Rs. 650 OFF</span>
 </div>
-
-<div class="discount">
-Rs. 650 OFF
-</div>
-
-<div class="quantity-row">
-
-<span>
-Quantity
-</span>
 
 <div class="quantity">
 
-<button
-type="button"
-onclick="changeQty('cream',-1)"
->
-−
-</button>
+<button type="button"
+onclick="changeQty('cream',-1)">−</button>
 
-<span id="creamQty">
-0
-</span>
+<span id="creamQty">0</span>
 
-<button
-type="button"
-onclick="changeQty('cream',1)"
->
-+
-</button>
-
-</div>
-
-</div>
+<button type="button"
+onclick="changeQty('cream',1)">+</button>
 
 </div>
 
 </div>
 
 
-<!-- ORDER SUMMARY -->
+<div class="summary">
 
-<div class="card">
-
-<h2>
-3. Order Summary
-</h2>
-
-
-<div class="summary-row">
-
-<span>
-Products Subtotal
-</span>
-
-<strong id="subtotal">
-Rs. 0
-</strong>
-
+<div class="row">
+<span>Products Subtotal</span>
+<span>Rs. <span id="subtotal">0</span></span>
 </div>
 
-
-<div class="summary-row">
-
-<span>
-Delivery Charges
-</span>
-
-<strong id="delivery">
-Rs. 0
-</strong>
-
+<div class="row">
+<span>Delivery</span>
+<span>FREE</span>
 </div>
 
-
-<div class="free-delivery">
-
-FREE DELIVERY IN PUNJAB
-
+<div class="row total">
+<span>Grand Total</span>
+<span>Rs. <span id="grandTotal">0</span></span>
 </div>
-
-
-<div class="summary-row grand">
-
-<span>
-Grand Total
-</span>
-
-<strong id="grandTotal">
-Rs. 0
-</strong>
 
 </div>
 
@@ -609,349 +352,171 @@ Rs. 0
 
 <!-- PAYMENT -->
 
-<div class="card">
+<div class="section">
 
-<h2>
-4. Payment
-</h2>
-
-
-<div class="payment-warning">
-
-<h3>
-SEND PAYMENT BEFORE ORDER
-</h3>
-
-<div>
-Send your payment through JazzCash before placing your order.
+<div class="section-title">
+Payment
 </div>
 
-<br>
+<div class="payment-box">
+
+<strong>SEND PAYMENT BEFORE ORDER</strong>
+
+<p>
+Please send payment through JazzCash before placing your order.
+</p>
 
 <div class="jazzcash">
 JazzCash: 03217819034
 </div>
 
-</div>
-
-
-<label>
-Payment Method <span class="required">*</span>
-</label>
+<label>Payment Method *</label>
 
 <select id="paymentMethod" required>
-
-<option value="">
-Select Payment Method
-</option>
-
-<option value="JazzCash">
-JazzCash
-</option>
-
+<option value="">Select Payment Method</option>
+<option value="JazzCash">JazzCash</option>
 </select>
 
 
-<label>
-Payment Screenshot <span class="required">*</span>
-</label>
+<label>Payment Screenshot *</label>
 
 <input
 type="file"
-id="paymentScreenshot"
+id="screenshot"
 accept="image/*"
 required
 >
 
+<div class="note">
+Upload your JazzCash payment screenshot.
+</div>
+
+</div>
+
 </div>
 
 
-<!-- PLACE ORDER -->
-
-<div class="card">
-
-<h2>
-5. Place Order
-</h2>
-
 <button
-type="button"
-class="order-btn"
-id="placeOrderBtn"
-onclick="placeOrder()"
->
+type="submit"
+class="place-order"
+id="placeOrder">
 
 PLACE ORDER
 
 </button>
 
 
-<div
-id="message"
-class="message"
-></div>
+<div id="message" class="message"></div>
 
-</div>
+</form>
 
 </div>
 
 
 <script>
 
-
-/* GOOGLE APPS SCRIPT URL */
+/* GOOGLE APPS SCRIPT */
 
 const GOOGLE_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzclrDiih0CgpiNfkPkURDiq1QTxa51-R9VMW_rkQup1nHOPa0zSLmIYo7j4GGGlDvcvQ/exec";
+"https://script.google.com/macros/s/AKfycbzclrDiih0CgpiNfkPkURDiq1qtXa51-R9VMW_rkQup1nHOPa0zSLmIYo7j4GGGlDvcvQ/exec";
 
 
-/* PRODUCTS */
-
-let quantities = {
-
-serum:0,
-
-cream:0
-
-};
-
-
-const prices = {
-
-serum:699,
-
-cream:550
-
-};
+let serumQty = 0;
+let creamQty = 0;
 
 
 /* QUANTITY */
 
 function changeQty(product,amount){
 
-quantities[product] += amount;
+if(product === "serum"){
 
-if(quantities[product] < 0){
+serumQty += amount;
 
-quantities[product] = 0;
+if(serumQty < 0){
+serumQty = 0;
+}
+
+document.getElementById("serumQty").innerText =
+serumQty;
 
 }
 
-document.getElementById(
-product+"Qty"
-).innerText =
-quantities[product];
+if(product === "cream"){
 
-updateSummary();
+creamQty += amount;
+
+if(creamQty < 0){
+creamQty = 0;
+}
+
+document.getElementById("creamQty").innerText =
+creamQty;
+
+}
+
+updateTotal();
 
 }
 
 
-/* SUMMARY */
+/* TOTAL */
 
-function updateSummary(){
+function updateTotal(){
 
 const subtotal =
-(quantities.serum * prices.serum) +
-(quantities.cream * prices.cream);
+(serumQty * 699) +
+(creamQty * 550);
 
+document.getElementById("subtotal").innerText =
+subtotal;
 
-document.getElementById(
-"subtotal"
-).innerText =
-"Rs. " +
-subtotal.toLocaleString();
-
-
-updateDelivery(subtotal);
+document.getElementById("grandTotal").innerText =
+subtotal;
 
 }
 
 
-/* FREE DELIVERY */
+/* IMAGE TO BASE64 */
 
-function updateDelivery(subtotalValue){
+function fileToBase64(file){
 
-let subtotal;
+return new Promise(function(resolve,reject){
 
-if(typeof subtotalValue === "number"){
+const reader = new FileReader();
 
-subtotal =
-subtotalValue;
+reader.onload = function(){
+resolve(reader.result);
+};
 
-}else{
+reader.onerror = reject;
 
-subtotal =
-(quantities.serum * prices.serum) +
-(quantities.cream * prices.cream);
-
-}
-
-
-/*
-FREE DELIVERY IN PUNJAB
-*/
-
-const deliveryCharge = 0;
-
-
-document.getElementById(
-"delivery"
-).innerText =
-"Rs. 0";
-
-
-document.getElementById(
-"grandTotal"
-).innerText =
-"Rs. " +
-(subtotal + deliveryCharge)
-.toLocaleString();
-
-}
-
-
-/* FILE TO BASE64 */
-
-function convertFileToBase64(file){
-
-return new Promise(
-
-(resolve,reject)=>{
-
-const reader =
-new FileReader();
-
-reader.onload =
-() => resolve(
-reader.result
-);
-
-reader.onerror =
-error => reject(
-error
-);
-
-reader.readAsDataURL(
-file
-);
-
-}
-
-);
-
-}
-
-
-/* PLACE ORDER */
-
-async function placeOrder(){
-
-
-const name =
-document.getElementById(
-"name"
-).value.trim();
-
-
-const phone =
-document.getElementById(
-"phone"
-).value.trim();
-
-
-const email =
-document.getElementById(
-"email"
-).value.trim();
-
-
-const address =
-document.getElementById(
-"address"
-).value.trim();
-
-
-const city =
-document.getElementById(
-"city"
-).value.trim();
-
-
-const province =
-document.getElementById(
-"province"
-).value;
-
-
-const paymentMethod =
-document.getElementById(
-"paymentMethod"
-).value;
-
-
-const screenshotFile =
-document.getElementById(
-"paymentScreenshot"
-).files[0];
-
-
-const message =
-document.getElementById(
-"message"
-);
-
-
-const button =
-document.getElementById(
-"placeOrderBtn"
-);
-
-
-message.style.display =
-"block";
-
-
-/* CUSTOMER CHECK */
-
-if(
-!name ||
-!phone ||
-!email ||
-!address ||
-!city ||
-!province
-){
-
-message.className =
-"message error";
-
-message.innerText =
-"Please fill all required customer information.";
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
+reader.readAsDataURL(file);
 
 });
 
-return;
-
 }
 
 
-/* PRODUCT CHECK */
+/* ORDER */
 
-if(
-quantities.serum +
-quantities.cream === 0
-){
+document.getElementById("orderForm")
+.addEventListener("submit",async function(e){
 
-message.className =
-"message error";
+e.preventDefault();
 
+const button =
+document.getElementById("placeOrder");
+
+const message =
+document.getElementById("message");
+
+
+/* PRODUCT REQUIRED */
+
+if(serumQty === 0 && creamQty === 0){
+
+message.className = "message error";
 message.innerText =
 "Please select at least one product.";
 
@@ -960,28 +525,30 @@ return;
 }
 
 
-/* PAYMENT CHECK */
+/* PROVINCE */
 
-if(!paymentMethod){
+const province =
+document.getElementById("province").value;
 
-message.className =
-"message error";
+if(province !== "PUNJAB"){
 
+message.className = "message error";
 message.innerText =
-"Please select your payment method.";
+"Delivery is currently available in Punjab only.";
 
 return;
 
 }
 
 
-/* SCREENSHOT CHECK */
+/* SCREENSHOT */
 
-if(!screenshotFile){
+const screenshotInput =
+document.getElementById("screenshot");
 
-message.className =
-"message error";
+if(!screenshotInput.files.length){
 
+message.className = "message error";
 message.innerText =
 "Please upload your payment screenshot.";
 
@@ -990,127 +557,94 @@ return;
 }
 
 
+button.disabled = true;
+button.innerText = "SENDING ORDER...";
+
+
 try{
 
-
-button.disabled =
-true;
-
-button.innerText =
-"SENDING ORDER...";
-
-
-message.className =
-"message success";
-
-message.innerText =
-"Please wait... Your order is being submitted.";
-
-
-/* TOTAL */
-
-const subtotal =
-(quantities.serum * prices.serum) +
-(quantities.cream * prices.cream);
-
-
-/* FREE DELIVERY */
-
-const delivery =
-0;
-
-
-const grandTotal =
-subtotal +
-delivery;
-
-
-/* SCREENSHOT */
+const file =
+screenshotInput.files[0];
 
 const screenshot =
-await convertFileToBase64(
-screenshotFile
-);
+await fileToBase64(file);
 
+const subtotal =
+(serumQty * 699) +
+(creamQty * 550);
 
-/* ORDER DATA */
 
 const orderData = {
 
-name:name,
+name:
+document.getElementById("name").value,
 
-phone:phone,
+phone:
+document.getElementById("phone").value,
 
-email:email,
+email:
+document.getElementById("email").value,
 
-address:address,
+address:
+document.getElementById("address").value,
 
-city:city,
+city:
+document.getElementById("city").value,
 
-province:province,
+province:
+province,
 
 serumQty:
-quantities.serum,
+serumQty,
 
 creamQty:
-quantities.cream,
+creamQty,
 
 subtotal:
 subtotal,
 
 delivery:
-delivery,
+0,
 
 grandTotal:
-grandTotal,
+subtotal,
 
 paymentMethod:
-paymentMethod,
+document.getElementById("paymentMethod").value,
 
 screenshot:
 screenshot,
 
 screenshotName:
-screenshotFile.name,
+file.name,
 
 screenshotType:
-screenshotFile.type
+file.type
 
 };
 
 
-/* SEND TO SHEET */
+/*
+SEND ORDER
+*/
 
-const response =
-await fetch(
-
-GOOGLE_SCRIPT_URL,
-
-{
+await fetch(GOOGLE_SCRIPT_URL,{
 
 method:"POST",
 
-body:
-JSON.stringify(
-orderData
-),
+mode:"no-cors",
+
+body:JSON.stringify(orderData),
 
 headers:{
-
 "Content-Type":
 "text/plain;charset=utf-8"
-
 }
 
-}
-);
+});
 
 
-const result =
-await response.json();
-
-
-if(result.success){
+/* SUCCESS */
 
 message.className =
 "message success";
@@ -1121,38 +655,23 @@ message.innerText =
 button.innerText =
 "ORDER PLACED";
 
-}else{
-
-throw new Error(
-result.error ||
-"Order submission failed"
-);
-
-}
-
 
 }catch(error){
-
-
-console.error(error);
-
 
 message.className =
 "message error";
 
 message.innerText =
-"Order could not be submitted. Please try again.";
+"Unable to send order. Please try again.";
 
-
-button.disabled =
-false;
+button.disabled = false;
 
 button.innerText =
 "PLACE ORDER";
 
 }
 
-}
+});
 
 </script>
 
