@@ -355,7 +355,6 @@ button.place-order:disabled{
     <p>Place Your Order</p>
   </div>
 
-
   <div class="offer">
     <h2>🎉 SPECIAL OFFER 🎉</h2>
     <p><strong>FREE DELIVERY IN PUNJAB</strong></p>
@@ -381,7 +380,6 @@ button.place-order:disabled{
       required
     >
 
-
     <label>
       Mobile Number <span class="required">*</span>
     </label>
@@ -392,7 +390,6 @@ button.place-order:disabled{
       placeholder="03XXXXXXXXX"
       required
     >
-
 
     <label>
       Gmail <span class="required">*</span>
@@ -405,7 +402,6 @@ button.place-order:disabled{
       required
     >
 
-
     <label>
       Complete Address <span class="required">*</span>
     </label>
@@ -416,7 +412,6 @@ button.place-order:disabled{
       placeholder="House / Street / Area"
       required
     >
-
 
     <label>
       City <span class="required">*</span>
@@ -429,14 +424,15 @@ button.place-order:disabled{
       required
     >
 
-
     <label>
       Province <span class="required">*</span>
     </label>
 
     <select id="province" required>
 
-      <option value="">Select Province</option>
+      <option value="">
+        Select Province
+      </option>
 
       <option value="PUNJAB">
         PUNJAB
@@ -452,7 +448,6 @@ button.place-order:disabled{
   <div class="card">
 
     <h2>2. Select Your Products</h2>
-
 
     <div class="product">
 
@@ -480,36 +475,28 @@ button.place-order:disabled{
 
       </div>
 
-
       <div class="quantity-row">
 
         <button
           type="button"
           class="qty-btn"
           onclick="changeQty('serum',-1)"
-        >
-          −
-        </button>
+        >−</button>
 
         <div
           class="qty-number"
           id="serumQty"
-        >
-          0
-        </div>
+        >0</div>
 
         <button
           type="button"
           class="qty-btn"
           onclick="changeQty('serum',1)"
-        >
-          +
-        </button>
+        >+</button>
 
       </div>
 
     </div>
-
 
 
     <div class="product">
@@ -538,31 +525,24 @@ button.place-order:disabled{
 
       </div>
 
-
       <div class="quantity-row">
 
         <button
           type="button"
           class="qty-btn"
           onclick="changeQty('cream',-1)"
-        >
-          −
-        </button>
+        >−</button>
 
         <div
           class="qty-number"
           id="creamQty"
-        >
-          0
-        </div>
+        >0</div>
 
         <button
           type="button"
           class="qty-btn"
           onclick="changeQty('cream',1)"
-        >
-          +
-        </button>
+        >+</button>
 
       </div>
 
@@ -577,24 +557,20 @@ button.place-order:disabled{
 
     <h2>3. Order Summary</h2>
 
-
     <div class="summary-row">
       <span>Products Subtotal</span>
       <strong id="subtotal">Rs. 0</strong>
     </div>
-
 
     <div class="summary-row">
       <span>Delivery Charges</span>
       <strong>Rs. 0</strong>
     </div>
 
-
     <div class="summary-row total">
       <span>Grand Total</span>
       <span id="grandTotal">Rs. 0</span>
     </div>
-
 
     <div class="free-delivery">
       FREE DELIVERY IN PUNJAB
@@ -609,7 +585,6 @@ button.place-order:disabled{
 
     <h2>4. Payment</h2>
 
-
     <div class="payment-warning">
 
       <strong>SEND PAYMENT BEFORE ORDER</strong>
@@ -620,7 +595,6 @@ button.place-order:disabled{
 
     </div>
 
-
     <div class="jazzcash">
 
       <strong>JazzCash Number</strong>
@@ -630,7 +604,6 @@ button.place-order:disabled{
       </div>
 
     </div>
-
 
     <label>
       Payment Method <span class="required">*</span>
@@ -647,7 +620,6 @@ button.place-order:disabled{
       </option>
 
     </select>
-
 
     <label>
       Payment Screenshot <span class="required">*</span>
@@ -682,7 +654,6 @@ button.place-order:disabled{
       PLACE ORDER
     </button>
 
-
     <div
       class="loading"
       id="loading"
@@ -690,18 +661,15 @@ button.place-order:disabled{
       SENDING ORDER... Please wait.
     </div>
 
-
     <div
       class="message success"
       id="successMessage"
     ></div>
 
-
     <div
       class="message error"
       id="errorMessage"
     ></div>
-
 
     <div
       class="order-result"
@@ -737,13 +705,23 @@ button.place-order:disabled{
     <h2>Track Your Order</h2>
 
     <label>
-      Enter Order ID
+      Order ID <span class="required">*</span>
     </label>
 
     <input
       type="text"
       id="trackOrderId"
       placeholder="Example: ALM-20260920-4821"
+    >
+
+    <label>
+      Mobile Number <span class="required">*</span>
+    </label>
+
+    <input
+      type="tel"
+      id="trackMobile"
+      placeholder="03XXXXXXXXX"
     >
 
     <button
@@ -754,7 +732,6 @@ button.place-order:disabled{
       CHECK MY ORDER
     </button>
 
-
     <div
       class="loading"
       id="trackLoading"
@@ -762,12 +739,10 @@ button.place-order:disabled{
       Checking order...
     </div>
 
-
     <div
       class="message error"
       id="trackError"
     ></div>
-
 
     <div
       class="track-result"
@@ -783,7 +758,7 @@ button.place-order:disabled{
 
 
 /* =====================================================
-   APPS SCRIPT URL
+   APPS SCRIPT
    ===================================================== */
 
 const APPS_SCRIPT_URL =
@@ -791,12 +766,11 @@ const APPS_SCRIPT_URL =
 
 
 /* =====================================================
-   PRODUCT QUANTITIES
+   PRODUCTS
    ===================================================== */
 
 let serumQty = 0;
 let creamQty = 0;
-
 
 const SERUM_PRICE = 699;
 const CREAM_PRICE = 550;
@@ -814,7 +788,6 @@ function changeQty(product, amount){
 
     document.getElementById("serumQty").textContent =
       serumQty;
-
   }
 
 
@@ -828,18 +801,12 @@ function changeQty(product, amount){
 
     document.getElementById("creamQty").textContent =
       creamQty;
-
   }
 
 
   updateSummary();
-
 }
 
-
-/* =====================================================
-   SUMMARY
-   ===================================================== */
 
 function updateSummary(){
 
@@ -847,19 +814,16 @@ function updateSummary(){
     (serumQty * SERUM_PRICE) +
     (creamQty * CREAM_PRICE);
 
-
   document.getElementById("subtotal").textContent =
     "Rs. " + subtotal.toLocaleString();
 
-
   document.getElementById("grandTotal").textContent =
     "Rs. " + subtotal.toLocaleString();
-
 }
 
 
 /* =====================================================
-   CREATE ORDER ID
+   ORDER ID
    ===================================================== */
 
 function createOrderId(){
@@ -870,19 +834,13 @@ function createOrderId(){
     now.getFullYear();
 
   const month =
-    String(now.getMonth()+1)
-    .padStart(2,"0");
+    String(now.getMonth()+1).padStart(2,"0");
 
   const day =
-    String(now.getDate())
-    .padStart(2,"0");
-
+    String(now.getDate()).padStart(2,"0");
 
   const random =
-    Math.floor(
-      1000 + Math.random() * 9000
-    );
-
+    Math.floor(1000 + Math.random() * 9000);
 
   return "ALM-" +
     year +
@@ -890,39 +848,29 @@ function createOrderId(){
     day +
     "-" +
     random;
-
 }
 
 
 /* =====================================================
-   COMPRESS SCREENSHOT
+   IMAGE COMPRESSION
    ===================================================== */
 
 function compressImage(file){
 
   return new Promise((resolve,reject)=>{
 
-    const reader =
-      new FileReader();
-
+    const reader = new FileReader();
 
     reader.onload = function(){
 
-      const img =
-        new Image();
-
+      const img = new Image();
 
       img.onload = function(){
 
-        let width =
-          img.width;
+        let width = img.width;
+        let height = img.height;
 
-        let height =
-          img.height;
-
-
-        const maxSize = 1200;
-
+        const maxSize = 600;
 
         if(width > maxSize){
 
@@ -932,9 +880,7 @@ function compressImage(file){
             );
 
           width = maxSize;
-
         }
-
 
         if(height > maxSize){
 
@@ -944,21 +890,16 @@ function compressImage(file){
             );
 
           height = maxSize;
-
         }
-
 
         const canvas =
           document.createElement("canvas");
 
-
         canvas.width = width;
         canvas.height = height;
 
-
         const ctx =
           canvas.getContext("2d");
-
 
         ctx.drawImage(
           img,
@@ -968,32 +909,28 @@ function compressImage(file){
           height
         );
 
-
         const dataUrl =
           canvas.toDataURL(
             "image/jpeg",
-            0.70
+            0.55
           );
 
-
         resolve(dataUrl);
-
       };
 
-
-      img.onerror = reject;
+      img.onerror = function(){
+        reject(new Error("Image could not be processed."));
+      };
 
       img.src = reader.result;
-
     };
 
-
-    reader.onerror = reject;
+    reader.onerror = function(){
+      reject(new Error("Image could not be read."));
+    };
 
     reader.readAsDataURL(file);
-
   });
-
 }
 
 
@@ -1004,78 +941,48 @@ function compressImage(file){
 async function placeOrder(){
 
   const btn =
-    document.getElementById(
-      "placeOrderBtn"
-    );
-
+    document.getElementById("placeOrderBtn");
 
   const loading =
-    document.getElementById(
-      "loading"
-    );
-
+    document.getElementById("loading");
 
   const success =
-    document.getElementById(
-      "successMessage"
-    );
-
+    document.getElementById("successMessage");
 
   const error =
-    document.getElementById(
-      "errorMessage"
-    );
+    document.getElementById("errorMessage");
 
 
   success.style.display = "none";
   error.style.display = "none";
 
 
-  /* CUSTOMER DATA */
-
   const name =
-    document.getElementById("name")
-    .value.trim();
-
+    document.getElementById("name").value.trim();
 
   const phone =
-    document.getElementById("phone")
-    .value.trim();
-
+    document.getElementById("phone").value.trim();
 
   const email =
-    document.getElementById("email")
-    .value.trim();
-
+    document.getElementById("email").value.trim();
 
   const address =
-    document.getElementById("address")
-    .value.trim();
-
+    document.getElementById("address").value.trim();
 
   const city =
-    document.getElementById("city")
-    .value.trim();
-
+    document.getElementById("city").value.trim();
 
   const province =
-    document.getElementById("province")
-    .value;
-
+    document.getElementById("province").value;
 
   const paymentMethod =
-    document.getElementById(
-      "paymentMethod"
-    ).value;
-
+    document.getElementById("paymentMethod").value;
 
   const screenshotInput =
-    document.getElementById(
-      "screenshot"
-    );
+    document.getElementById("screenshot");
 
 
-  /* REQUIRED CHECK */
+  /* REQUIRED FIELDS */
 
   if(
     !name ||
@@ -1093,13 +1000,10 @@ async function placeOrder(){
     error.style.display = "block";
 
     return;
-
   }
 
 
-  if(
-    !email.toLowerCase().endsWith("@gmail.com")
-  ){
+  if(!email.toLowerCase().endsWith("@gmail.com")){
 
     error.textContent =
       "Please enter a valid Gmail address.";
@@ -1107,14 +1011,10 @@ async function placeOrder(){
     error.style.display = "block";
 
     return;
-
   }
 
 
-  if(
-    serumQty === 0 &&
-    creamQty === 0
-  ){
+  if(serumQty === 0 && creamQty === 0){
 
     error.textContent =
       "Please select at least one product.";
@@ -1122,7 +1022,6 @@ async function placeOrder(){
     error.style.display = "block";
 
     return;
-
   }
 
 
@@ -1137,7 +1036,6 @@ async function placeOrder(){
     error.style.display = "block";
 
     return;
-
   }
 
 
@@ -1145,16 +1043,14 @@ async function placeOrder(){
     screenshotInput.files[0];
 
 
-  /* START */
-
   btn.disabled = true;
-
   loading.style.display = "block";
-
   btn.textContent = "SENDING...";
 
 
   try{
+
+    /* COMPRESS SCREENSHOT */
 
     const screenshot =
       await compressImage(file);
@@ -1206,37 +1102,41 @@ async function placeOrder(){
 
       screenshotType:
         "image/jpeg"
-
     };
 
 
     /*
-      OLD APPS SCRIPT EXPECTS
-      RAW JSON IN e.postData.contents
+      OLD APPS SCRIPT USES:
+
+      JSON.parse(e.postData.contents)
+
+      Therefore this sends RAW JSON.
     */
 
-    const response =
-      await fetch(
-        APPS_SCRIPT_URL,
-        {
-          method:"POST",
+    await fetch(
+      APPS_SCRIPT_URL,
+      {
+        method:"POST",
 
-          headers:{
-            "Content-Type":
-              "text/plain;charset=utf-8"
-          },
+        mode:"no-cors",
 
-          body:
-            JSON.stringify(orderData),
+        redirect:"follow",
 
-          mode:"no-cors"
-        }
-      );
+        headers:{
+          "Content-Type":
+            "text/plain;charset=UTF-8"
+        },
+
+        body:
+          JSON.stringify(orderData)
+      }
+    );
 
 
     /*
-      no-cors does not allow reading
-      the Apps Script response.
+      Browser security does not allow
+      reading the no-cors response.
+
       The request has been sent.
     */
 
@@ -1269,37 +1169,54 @@ async function placeOrder(){
       orderId;
 
 
-    window.scrollTo({
-      top:
-        document.getElementById(
-          "orderResult"
-        ).getBoundingClientRect().top +
-        window.scrollY -
-        30,
+    document.getElementById(
+      "trackMobile"
+    ).value =
+      phone;
 
-      behavior:"smooth"
+
+    loading.style.display =
+      "none";
+
+    btn.disabled =
+      false;
+
+    btn.textContent =
+      "PLACE ORDER";
+
+
+    document.getElementById(
+      "orderResult"
+    ).scrollIntoView({
+      behavior:"smooth",
+      block:"center"
     });
 
 
   }catch(err){
+
+    console.error(
+      "ALMARI ORDER ERROR:",
+      err
+    );
+
+
+    loading.style.display =
+      "none";
+
+    btn.disabled =
+      false;
+
+    btn.textContent =
+      "PLACE ORDER";
+
 
     error.textContent =
       "Order could not be sent. Please try again.";
 
     error.style.display =
       "block";
-
   }
-
-
-  loading.style.display =
-    "none";
-
-  btn.disabled =
-    false;
-
-  btn.textContent =
-    "PLACE ORDER";
 
 }
 
@@ -1313,6 +1230,12 @@ function trackOrder(){
   const orderId =
     document.getElementById(
       "trackOrderId"
+    ).value.trim();
+
+
+  const mobile =
+    document.getElementById(
+      "trackMobile"
     ).value.trim();
 
 
@@ -1341,16 +1264,15 @@ function trackOrder(){
     "none";
 
 
-  if(!orderId){
+  if(!orderId || !mobile){
 
     error.textContent =
-      "Please enter your Order ID.";
+      "Please enter Order ID and Mobile Number.";
 
     error.style.display =
       "block";
 
     return;
-
   }
 
 
@@ -1358,123 +1280,130 @@ function trackOrder(){
     "block";
 
 
-  /*
-    OLD APPS SCRIPT SUPPORTS JSONP
-  */
-
   const callbackName =
     "almariCallback_" +
     Date.now();
 
 
+  let finished = false;
+
+
   window[callbackName] =
     function(data){
+
+      if(finished){
+        return;
+      }
+
+      finished = true;
 
       loading.style.display =
         "none";
 
 
-      try{
+      if(
+        !data ||
+        !data.success
+      ){
 
-        if(
-          !data ||
-          !data.success
-        ){
+        error.textContent =
+          data && data.error
+            ? data.error
+            : "Order not found.";
 
-          error.textContent =
-            data && data.error
-              ? data.error
-              : "Order not found.";
-
-          error.style.display =
-            "block";
-
-          return;
-
-        }
-
-
-        result.innerHTML =
-
-          "<h3>Order Details</h3>" +
-
-          "<p><strong>Order ID:</strong> " +
-          escapeHtml(data.orderId) +
-          "</p>" +
-
-          "<p><strong>Customer Name:</strong> " +
-          escapeHtml(data.name) +
-          "</p>" +
-
-          "<p><strong>Mobile:</strong> " +
-          escapeHtml(data.phone) +
-          "</p>" +
-
-          "<p><strong>City:</strong> " +
-          escapeHtml(data.city) +
-          "</p>" +
-
-          "<p><strong>Province:</strong> " +
-          escapeHtml(data.province) +
-          "</p>" +
-
-          "<p><strong>Serum Quantity:</strong> " +
-          escapeHtml(data.serumQty) +
-          "</p>" +
-
-          "<p><strong>Cream Quantity:</strong> " +
-          escapeHtml(data.creamQty) +
-          "</p>" +
-
-          "<p><strong>Subtotal:</strong> Rs. " +
-          Number(data.subtotal || 0).toLocaleString() +
-          "</p>" +
-
-          "<p><strong>Delivery:</strong> FREE</p>" +
-
-          "<p><strong>Grand Total:</strong> Rs. " +
-          Number(data.grandTotal || 0).toLocaleString() +
-          "</p>" +
-
-          "<p><strong>Payment:</strong> " +
-          escapeHtml(data.paymentMethod) +
-          "</p>" +
-
-          "<p><strong>Status:</strong> " +
-          "<span class='status'>" +
-          escapeHtml(data.status || "Confirmed") +
-          "</span></p>";
-
-
-        result.style.display =
+        error.style.display =
           "block";
 
+        cleanup();
 
-      }finally{
-
-        setTimeout(
-          function(){
-
-            const script =
-              document.getElementById(
-                callbackName
-              );
-
-            if(script){
-              script.remove();
-            }
-
-            delete window[
-              callbackName
-            ];
-
-          },
-          1000
-        );
-
+        return;
       }
 
+
+      result.innerHTML =
+
+        "<h3>Order Details</h3>" +
+
+        "<p><strong>Order ID:</strong> " +
+        escapeHtml(data.orderId) +
+        "</p>" +
+
+        "<p><strong>Customer Name:</strong> " +
+        escapeHtml(data.name) +
+        "</p>" +
+
+        "<p><strong>Mobile:</strong> " +
+        escapeHtml(data.phone) +
+        "</p>" +
+
+        "<p><strong>City:</strong> " +
+        escapeHtml(data.city) +
+        "</p>" +
+
+        "<p><strong>Province:</strong> " +
+        escapeHtml(data.province) +
+        "</p>" +
+
+        "<p><strong>Serum Quantity:</strong> " +
+        escapeHtml(data.serumQty) +
+        "</p>" +
+
+        "<p><strong>Cream Quantity:</strong> " +
+        escapeHtml(data.creamQty) +
+        "</p>" +
+
+        "<p><strong>Subtotal:</strong> Rs. " +
+        Number(data.subtotal || 0).toLocaleString() +
+        "</p>" +
+
+        "<p><strong>Delivery:</strong> FREE</p>" +
+
+        "<p><strong>Grand Total:</strong> Rs. " +
+        Number(data.grandTotal || 0).toLocaleString() +
+        "</p>" +
+
+        "<p><strong>Payment:</strong> " +
+        escapeHtml(data.paymentMethod) +
+        "</p>" +
+
+        "<p><strong>Status:</strong> " +
+
+        "<span class='status'>" +
+
+        escapeHtml(
+          data.status || "Confirmed"
+        ) +
+
+        "</span></p>";
+
+
+      result.style.display =
+        "block";
+
+
+      cleanup();
     };
+
+
+  function cleanup(){
+
+    setTimeout(function(){
+
+      const oldScript =
+        document.getElementById(
+          callbackName
+        );
+
+      if(oldScript){
+        oldScript.remove();
+      }
+
+      delete window[
+        callbackName
+      ];
+
+    },1000);
+  }
 
 
   const script =
@@ -1487,14 +1416,25 @@ function trackOrder(){
 
   script.src =
     APPS_SCRIPT_URL +
+
     "?orderId=" +
     encodeURIComponent(orderId) +
+
+    "&mobile=" +
+    encodeURIComponent(mobile) +
+
     "&callback=" +
     encodeURIComponent(callbackName);
 
 
   script.onerror =
     function(){
+
+      if(finished){
+        return;
+      }
+
+      finished = true;
 
       loading.style.display =
         "none";
@@ -1505,18 +1445,39 @@ function trackOrder(){
       error.style.display =
         "block";
 
-      script.remove();
-
-      delete window[
-        callbackName
-      ];
-
+      cleanup();
     };
 
 
   document.body.appendChild(
     script
   );
+
+
+  /*
+    If the server doesn't respond
+    within 20 seconds.
+  */
+
+  setTimeout(function(){
+
+    if(!finished){
+
+      finished = true;
+
+      loading.style.display =
+        "none";
+
+      error.textContent =
+        "Order not found or server did not respond.";
+
+      error.style.display =
+        "block";
+
+      cleanup();
+    }
+
+  },20000);
 
 }
 
@@ -1535,12 +1496,11 @@ function escapeHtml(value){
   .replace(/>/g,"&gt;")
   .replace(/"/g,"&quot;")
   .replace(/'/g,"&#039;");
-
 }
 
 
 /* =====================================================
-   INITIAL SUMMARY
+   START
    ===================================================== */
 
 updateSummary();
