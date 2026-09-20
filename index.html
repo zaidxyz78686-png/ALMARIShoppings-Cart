@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALMARI Shoppings - Order</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f4f5f7;
+  color:#222;
+}
+
+.container{
+  max-width:850px;
+  margin:20px auto;
+  padding:15px;
+}
+
+.header{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:22px 15px;
+  border-radius:15px;
+  margin-bottom:20px;
+}
+
+.header h1{
+  margin:0;
+  font-size:30px;
+}
+
+.header p{
+  margin:7px 0 0;
+  color:#ddd;
+}
+
+.card{
+  background:white;
+  padding:22px;
+  margin-bottom:18px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+  margin-top:0;
+  font-size:21px;
+  border-bottom:1px solid #eee;
+  padding-bottom:12px;
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin:14px 0 7px;
+}
+
+.required{
+  color:red;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:9px;
+  font-size:15px;
+  outline:none;
+}
+
+input:focus, select:focus, textarea:focus{
+  border-color:#111;
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+/* PRODUCTS */
+
+.product{
+  border:1px solid #ddd;
+  border-radius:13px;
+  padding:16px;
+  margin-bottom:15px;
+  background:#fafafa;
+}
+
+.product h3{
+  margin:0 0 8px;
+  font-size:18px;
+}
+
+.original{
+  color:#888;
+  text-decoration:line-through;
+  font-size:14px;
+}
+
+.price{
+  font-size:21px;
+  font-weight:bold;
+  margin-top:4px;
+}
+
+.discount{
+  display:inline-block;
+  background:#e53935;
+  color:white;
+  padding:5px 9px;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:bold;
+  margin-top:7px;
+}
+
+.quantity-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:15px;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  border:1px solid #ccc;
+  border-radius:8px;
+  overflow:hidden;
+}
+
+.quantity button{
+  width:40px;
+  height:38px;
+  border:0;
+  background:#111;
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.quantity span{
+  width:45px;
+  text-align:center;
+  font-weight:bold;
+}
+
+/* SUMMARY */
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  padding:9px 0;
+  border-bottom:1px solid #eee;
+}
+
+.grand{
+  font-size:21px;
+  font-weight:bold;
+  padding-top:15px;
+}
+
+/* PAYMENT */
+
+.payment-warning{
+  background:#fff0f0;
+  border:2px solid #e53935;
+  border-radius:12px;
+  padding:18px;
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.payment-warning h3{
+  color:#d00000;
+  margin:0 0 10px;
+}
+
+.jazzcash{
+  font-size:22px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+/* BUTTON */
+
+.order-btn{
+  width:100%;
+  padding:16px;
+  background:#111;
+  color:white;
+  border:none;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.order-btn:hover{
+  background:#333;
+}
+
+.message{
+  display:none;
+  padding:16px;
+  margin-top:15px;
+  border-radius:10px;
+  text-align:center;
+  font-weight:bold;
+}
+
+.success{
+  background:#e8f8ed;
+  color:#16733a;
+}
+
+.error{
+  background:#ffeaea;
+  color:#b00000;
+}
+
+.delivery-note{
+  background:#f1f1f1;
+  padding:12px;
+  border-radius:9px;
+  margin-top:12px;
+  font-size:14px;
+}
+
+@media(max-width:600px){
+  .container{
+    padding:10px;
+  }
+
+  .card{
+    padding:17px;
+  }
+
+  .header h1{
+    font-size:25px;
+  }
+
+  .quantity-row{
+    align-items:flex-start;
+    gap:10px;
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>ALMARI Shoppings</h1>
+    <p>Place Your Order</p>
+  </div>
+
+
+  <!-- STEP 1: CUSTOMER INFORMATION -->
+  <div class="card">
+
+    <h2>1. Customer Information</h2>
+
+    <label>
+      Customer Name <span class="required">*</span>
+    </label>
+    <input type="text" id="name" placeholder="Enter your full name" required>
+
+    <label>
+      Mobile Number <span class="required">*</span>
+    </label>
+    <input
+      type="tel"
+      id="phone"
+      placeholder="03XXXXXXXXX"
+      required
+    >
+
+    <label>
+      Gmail <span class="required">*</span>
+    </label>
+    <input
+      type="email"
+      id="email"
+      placeholder="example@gmail.com"
+      required
+    >
+
+    <label>
+      Complete Address <span class="required">*</span>
+    </label>
+    <textarea
+      id="address"
+      placeholder="House number, street, area, etc."
+      required
+    ></textarea>
+
+    <label>
+      City <span class="required">*</span>
+    </label>
+    <input
+      type="text"
+      id="city"
+      placeholder="Enter your city"
+      required
+      oninput="updateDelivery()"
+    >
+
+    <label>
+      Province <span class="required">*</span>
+    </label>
+
+    <select id="province" required>
+      <option value="">Select Province</option>
+      <option value="PUNJAB">PUNJAB</option>
+    </select>
+
+  </div>
+
+
+  <!-- STEP 2: PRODUCTS -->
+  <div class="card">
+
+    <h2>2. Select Your Products</h2>
+
+    <!-- PRODUCT 1 -->
+    <div class="product">
+
+      <h3>Knox Glow Multi Vitamin Serum</h3>
+
+      <div class="original">
+        Original Price: Rs. 1,500
+      </div>
+
+      <div class="price">
+        Rs. 699
+      </div>
+
+      <div class="discount">
+        Rs. 801 OFF
+      </div>
+
+      <div class="quantity-row">
+
+        <span>Quantity</span>
+
+        <div class="quantity">
+          <button type="button" onclick="changeQty('serum',-1)">−</button>
+          <span id="serumQty">0</span>
+          <button type="button" onclick="changeQty('serum',1)">+</button>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- PRODUCT 2 -->
+    <div class="product">
+
+      <h3>Knox Glow Gluta White Cream</h3>
+
+      <div class="original">
+        Original Price: Rs. 1,200
+      </div>
+
+      <div class="price">
+        Rs. 550
+      </div>
+
+      <div class="discount">
+        Rs. 650 OFF
+      </div>
+
+      <div class="quantity-row">
+
+        <span>Quantity</span>
+
+        <div class="quantity">
+          <button type="button" onclick="changeQty('cream',-1)">−</button>
+          <span id="creamQty">0</span>
+          <button type="button" onclick="changeQty('cream',1)">+</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- STEP 3: ORDER SUMMARY -->
+  <div class="card">
+
+    <h2>3. Order Summary</h2>
+
+    <div class="summary-row">
+      <span>Products Subtotal</span>
+      <strong id="subtotal">Rs. 0</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Delivery Charges</span>
+      <strong id="delivery">Rs. 0</strong>
+    </div>
+
+    <div class="delivery-note">
+      Sahiwal: Rs. 200 per order<br>
+      Lahore & all other cities: Rs. 350 per order
+    </div>
+
+    <div class="summary-row grand">
+      <span>Grand Total</span>
+      <strong id="grandTotal">Rs. 0</strong>
+    </div>
+
+  </div>
+
+
+  <!-- STEP 4: PAYMENT -->
+  <div class="card">
+
+    <h2>4. Payment</h2>
+
+    <div class="payment-warning">
+
+      <h3>SEND PAYMENT BEFORE ORDER</h3>
+
+      <div>
+        Send your payment through JazzCash before placing your order.
+      </div>
+
+      <br>
+
+      <div class="jazzcash">
+        JazzCash: 03217819034
+      </div>
+
+    </div>
+
+
+    <label>
+      Payment Method <span class="required">*</span>
+    </label>
+
+    <select id="paymentMethod" required>
+      <option value="">Select Payment Method</option>
+      <option value="JazzCash">JazzCash</option>
+    </select>
+
+
+    <label>
+      Payment Screenshot <span class="required">*</span>
+    </label>
+
+    <input
+      type="file"
+      id="paymentScreenshot"
+      accept="image/*"
+      required
+    >
+
+  </div>
+
+
+  <!-- STEP 5: PLACE ORDER -->
+  <div class="card">
+
+    <h2>5. Place Order</h2>
+
+    <button
+      type="button"
+      class="order-btn"
+      onclick="placeOrder()"
+    >
+      PLACE ORDER
+    </button>
+
+    <div id="message" class="message"></div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+let quantities = {
+  serum: 0,
+  cream: 0
+};
+
+const prices = {
+  serum: 699,
+  cream: 550
+};
+
+
+function changeQty(product, amount){
+
+  quantities[product] += amount;
+
+  if(quantities[product] < 0){
+    quantities[product] = 0;
+  }
+
+  document.getElementById(product + "Qty").innerText =
+    quantities[product];
+
+  updateSummary();
+}
+
+
+function updateSummary(){
+
+  let subtotal =
+    (quantities.serum * prices.serum) +
+    (quantities.cream * prices.cream);
+
+  document.getElementById("subtotal").innerText =
+    "Rs. " + subtotal.toLocaleString();
+
+
+  updateDelivery(subtotal);
+}
+
+
+function updateDelivery(subtotalValue){
+
+  let subtotal;
+
+  if(typeof subtotalValue === "number"){
+    subtotal = subtotalValue;
+  }else{
+
+    subtotal =
+      (quantities.serum * prices.serum) +
+      (quantities.cream * prices.cream);
+
+  }
+
+
+  let city =
+    document.getElementById("city").value
+    .trim()
+    .toLowerCase();
+
+
+  let deliveryCharge = 0;
+
+
+  if(subtotal > 0){
+
+    if(city === "sahiwal"){
+      deliveryCharge = 200;
+    }else{
+      deliveryCharge = 350;
+    }
+
+  }
+
+
+  document.getElementById("delivery").innerText =
+    "Rs. " + deliveryCharge.toLocaleString();
+
+
+  let grandTotal = subtotal + deliveryCharge;
+
+
+  document.getElementById("grandTotal").innerText =
+    "Rs. " + grandTotal.toLocaleString();
+
+}
+
+
+function placeOrder(){
+
+  let name =
+    document.getElementById("name").value.trim();
+
+  let phone =
+    document.getElementById("phone").value.trim();
+
+  let email =
+    document.getElementById("email").value.trim();
+
+  let address =
+    document.getElementById("address").value.trim();
+
+  let city =
+    document.getElementById("city").value.trim();
+
+  let province =
+    document.getElementById("province").value;
+
+  let paymentMethod =
+    document.getElementById("paymentMethod").value;
+
+  let screenshot =
+    document.getElementById("paymentScreenshot").files.length;
+
+
+  let message =
+    document.getElementById("message");
+
+
+  message.style.display = "block";
+
+
+  /* CHECK CUSTOMER INFORMATION */
+
+  if(
+    !name ||
+    !phone ||
+    !email ||
+    !address ||
+    !city ||
+    !province
+  ){
+
+    message.className = "message error";
+
+    message.innerText =
+      "Please fill all required customer information.";
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+    return;
+  }
+
+
+  /* CHECK PRODUCT */
+
+  let totalProducts =
+    quantities.serum + quantities.cream;
+
+  if(totalProducts === 0){
+
+    message.className = "message error";
+
+    message.innerText =
+      "Please select at least one product.";
+
+    return;
+  }
+
+
+  /* CHECK PAYMENT */
+
+  if(!paymentMethod){
+
+    message.className = "message error";
+
+    message.innerText =
+      "Please select your payment method.";
+
+    return;
+  }
+
+
+  if(!screenshot){
+
+    message.className = "message error";
+
+    message.innerText =
+      "Please upload your payment screenshot.";
+
+    return;
+  }
+
+
+  /* SUCCESS */
+
+  message.className = "message success";
+
+  message.innerText =
+    "Your order information is complete. Thank you for ordering from ALMARI Shoppings!";
+
+  window.scrollTo({
+    top:document.body.scrollHeight,
+    behavior:"smooth"
+  });
+
+}
+
+</script>
+
+</body>
+</html>
